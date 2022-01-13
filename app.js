@@ -40,8 +40,19 @@ startGame.addEventListener('click', () => {
 for(let card of cards) {
   card.addEventListener('click', (e) => {
     const cardDiv = e.target;
-    if(cardDiv.className === 'front-face') {
-    cardDiv.classList.toggle('hide');
+    //if there is only 1 card flipped the code will run
+    if(cardDiv.className === 'front-face' && firstCard === undefined || secondCard === undefined) {
+    //This waits for the card to be flipped half way to then 
+    //hide the front image
+    async function delay() {
+      await new Promise(resolve => setTimeout(resolve, 300));
+      cardDiv.classList.toggle('hide');
+    }
+
+    delay()
+
+
+
     //this updates the current score
     let scoreNum = parseInt(currentScore.innerText)
     currentScore.innerText = scoreNum+1
@@ -53,6 +64,12 @@ for(let card of cards) {
     } else if(firstCard !== undefined) {
       secondCard = backface;
     }
+    } 
+    //if 2 cards are flipped this code will prevent the card
+    //flip from occouring until all cards are flipped to their 
+    //original state
+    else {
+      cardDiv.parentElement.className = 'memorycard unflip'
     }
     //if 1st and 2nd cards are equal the values are reset to undefined
     if(firstCard && secondCard !== undefined){
@@ -97,10 +114,10 @@ for(let card of cards) {
           
         }
         
-      } else{
+      } else if(firstCard.src !== secondCard.src){
         //this will wait one sec before flipping cards
         async function delay() {
-          await new Promise(resolve => setTimeout(resolve, 500));
+          await new Promise(resolve => setTimeout(resolve, 1000));
           firstCard.parentElement.lastElementChild.className = 'front-face';
           secondCard.parentElement.lastElementChild.className = 'front-face';
           //I toggle the following classes to make the flip back to 
@@ -109,9 +126,24 @@ for(let card of cards) {
           firstCard.parentElement.className = 'memorycard unflip';
           secondCard.parentElement.className = 'memorycard unflip';
 
+          //This prevents the front image from instantly popping up
+          //before the transition happens
+          firstCard.parentElement.lastElementChild.classList.toggle('hide');
+          secondCard.parentElement.lastElementChild.classList.toggle('hide');
           console.log(firstCard.parentElement)
-          firstCard = undefined;
-          secondCard = undefined;
+
+
+          //This then allows the front image to pop back up after the midway
+          //point of the turn
+          async function delay2() {
+            await new Promise(resolve => setTimeout(resolve, 300));
+            firstCard.parentElement.lastElementChild.classList.toggle('hide');
+            secondCard.parentElement.lastElementChild.classList.toggle('hide');
+            firstCard = undefined;
+            secondCard = undefined;
+          }
+      
+          delay2()
         }
 
         delay()
