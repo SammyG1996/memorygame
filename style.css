@@ -94,7 +94,6 @@ color: whitesmoke;
 transition: .1s;
 font-family: 'Press Start 2P', cursive;
 transform: scale(1);
-
 }
 
 header button:hover {
@@ -206,6 +205,7 @@ section {
   width: 45vw;
   height: 45vw;
   display: flex;
+  perspective: 1000px;
 }
 
 .container {
@@ -258,12 +258,25 @@ section, div.memorycard {
   height: 9vw;
   transform: scale(1);
   position: relative;
+  transform-style: preserve-3d;
+  transition: transform .5s;
 }
 
 .memorycard:active {
   transform: scale(.97);
   transition: .1s;
 }
+
+.memorycard.flip {
+  transform: rotateY(180deg);
+  transition: transform .5s;
+  }
+
+  .memorycard.unflip {
+    transform: rotateY(360deg);
+    transition: transform .5s;
+    }
+
 
 .front-face, .back-face {
   position: absolute;

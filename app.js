@@ -5,6 +5,8 @@ const restart = document.querySelector('#finished button');
 const bestscoreDiv = document.querySelector('.best-score');
 const cardGameDiv = document.querySelector('#cardGameDiv');
 
+const gameCards = document.querySelectorAll('.cards')
+
 
 let bestscore = 0;
 let firstCard;
@@ -12,8 +14,15 @@ let secondCard;
 let imgArray = ['gifs/1.gif', 'gifs/1.gif', 'gifs/2.gif', 'gifs/2.gif', 'gifs/3.gif', 'gifs/3.gif', 'gifs/4.gif', 'gifs/4.gif', 'gifs/5.gif', 'gifs/5.gif', 'gifs/6.gif', 'gifs/6.gif', 'gifs/7.gif', 'gifs/7.gif', 'gifs/8.gif', 'gifs/8.gif'];
 let newImgArray = [];
 
+//when clicked this function will fun. It will set the flip
+//class to include the flip animation
+function flipcard(){
+  this.className = 'memorycard flip'
+}
 
-
+for(let card of cards) {
+  card.addEventListener('click', flipcard)
+}
 
 startGame.addEventListener('click', () => {
   //shows cards at 
@@ -94,6 +103,13 @@ for(let card of cards) {
           await new Promise(resolve => setTimeout(resolve, 500));
           firstCard.parentElement.lastElementChild.className = 'front-face';
           secondCard.parentElement.lastElementChild.className = 'front-face';
+          //I toggle the following classes to make the flip back to 
+          //the normal state and set the class to include the unflip
+
+          firstCard.parentElement.className = 'memorycard unflip';
+          secondCard.parentElement.className = 'memorycard unflip';
+
+          console.log(firstCard.parentElement)
           firstCard = undefined;
           secondCard = undefined;
         }
