@@ -4,6 +4,10 @@ const currentScore = document.querySelector('#score div');
 const restart = document.querySelector('#finished button');
 const bestscoreDiv = document.querySelector('.best-score');
 const cardGameDiv = document.querySelector('#cardGameDiv');
+
+//hides cards 
+cardGameDiv.style.display = 'none';
+
 let bestscore = 0;
 let firstCard;
 let secondCard;
@@ -14,7 +18,7 @@ let newImgArray = [];
 
 
 startGame.addEventListener('click', () => {
-  //shows cards
+  //shows cards at 
   cardGameDiv.style.display = 'block';
 const header = document.querySelector('header')
 header.className = 'clicked'
@@ -113,8 +117,6 @@ restart.addEventListener('click', () => location.reload() )
 
 //When the page is loaded the best score will be reloaded into the document
 document.addEventListener('DOMContentLoaded', () => {
-//hides cards 
-cardGameDiv.style.display = 'none';
 let string = localStorage.getItem('bestscore');
 let num = parseInt(string);
 
