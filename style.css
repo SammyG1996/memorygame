@@ -53,7 +53,7 @@ header section div {
 /* start game transition */
 .clicked {
   animation-name: startGame;
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-fill-mode: forwards;
 }
 
@@ -169,7 +169,7 @@ margin-top: 1vw;
 /* transition for finished */
 .showScore {
   animation-name: showScore;
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-fill-mode: forwards;
 }
 
@@ -222,7 +222,7 @@ section {
 /* transition to slide card game in*/
 .clickedGame {
   animation-name: cardGame;
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-fill-mode: forwards;
 }
 
