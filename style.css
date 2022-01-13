@@ -12,8 +12,43 @@ body {
   background: rgb(0,252,255);
   background: linear-gradient(0deg, rgba(0,252,255,1) 30%, rgba(42,25,249,1) 100%);
   background-repeat: no-repeat;
-  color: rgb(74, 0, 143);
+  color: blue;
   font-family: 'Press Start 2P', cursive;
+}
+
+h1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  bottom: 2vw;
+
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  background-color: none;
+  justify-content: center;
+  background-color: inherit;
+
+  
+}
+
+.red {
+  color: red;
+}
+
+.blue {
+  color: blue;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.green {
+  color: rgb(3, 180, 32);
 }
 
 header {
@@ -29,7 +64,7 @@ header section {
 header section div {
   align-self: auto;
   width: 50%;
-  height: 70%;
+  height: 80%;
   padding: 1rem;
   background-color: rgba(245, 245, 245, 0.459);
   border-radius: 10px;
@@ -78,7 +113,7 @@ header section div {
 
 header span {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding: 1%;
   font-size: 3rem;
 }
@@ -97,7 +132,7 @@ transform: scale(1);
 }
 
 header button:hover {
-  background-color: rgb(74, 0, 143);
+  background-color: red;
 transform: scale(1.1);
   transition: .1s;
 }
@@ -244,7 +279,7 @@ section {
 
 /* ----------------- */
 
- img {
+img {
 width: 100%;
 height: 100%;
 }  
