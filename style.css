@@ -107,6 +107,7 @@ header button:active {
   transform: scale(.99);
   transition: .1s;
 }
+
 #score {
   text-align: center;
   width: 10vw;
@@ -204,7 +205,6 @@ section {
   bottom: -20%;
   width: 45vw;
   height: 45vw;
-  /* overflow: hidden; */
   display: flex;
 }
 

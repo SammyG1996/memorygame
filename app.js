@@ -5,8 +5,6 @@ const restart = document.querySelector('#finished button');
 const bestscoreDiv = document.querySelector('.best-score');
 const cardGameDiv = document.querySelector('#cardGameDiv');
 
-//hides cards 
-cardGameDiv.style.display = 'none';
 
 let bestscore = 0;
 let firstCard;
