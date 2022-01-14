@@ -17,7 +17,10 @@ let newImgArray = [];
 //when clicked this function will fun. It will set the flip
 //class to include the flip animation
 function flipcard(){
+  if(this.lastElementChild.className !== 'front-face unflipped' || this.firstElementChild.className === 'back-face match') {
+  } else {
   this.className = 'memorycard flip'
+  }
 }
 
 for(let card of cards) {
@@ -41,27 +44,28 @@ for(let card of cards) {
   card.addEventListener('click', (e) => {
     const cardDiv = e.target;
 
-    if (cardDiv.className !=='front-face unflipped') {
+    if (cardDiv.className !== 'front-face unflipped' || cardDiv.parentElement.firstElementChild.className === 'back-face match') {
       //do nothing
     } else {
 
     //if there is only 1 card flipped the code will run
     if(cardDiv.className === 'front-face unflipped' && firstCard === undefined || secondCard === undefined) {
     //I added the class unflipped above and in the HTML. If it has both those classes the following code will run. 
-    //As soon as the click happens I instantly remove the flip class thereby preventing the doubleclicking of the same 
-    //card to cause it to dissapear. This would happen because the "hide" class would be applied to the card 2 times and would
-    //then cause the card to dissapear. 
-    cardDiv.className === 'front-face'
+
+    //I then toggle the "flipped" class to make sure this code will only run again
+    //if the card is trully unflipped
+    cardDiv.classList.toggle('flipped')
     //This waits for the card to be flipped half way to then 
     //hide the front image
     async function delay() {
       await new Promise(resolve => setTimeout(resolve, 300));
-      cardDiv.classList.toggle('hide');
-      cardDiv.className === 'front-face unflipped'
+      cardDiv.classList.toggle('hide'); 
+      console.log(cardDiv.className);
     }
 
     delay()
 
+    console.log(cardDiv.className);
 
 
     //this updates the current score
@@ -77,9 +81,6 @@ for(let card of cards) {
     }
     } 
 
-    else if (cardDiv.className === 'front-face'){
-      cardDiv.className === 'front-face'
-    }
     //if 2 cards are flipped this code will prevent the card
     //flip from occouring until all cards are flipped to their 
     //original state
@@ -133,8 +134,7 @@ for(let card of cards) {
         //this will wait one sec before flipping cards
         async function delay() {
           await new Promise(resolve => setTimeout(resolve, 1000));
-          firstCard.parentElement.lastElementChild.className = 'front-face unflipped';
-          secondCard.parentElement.lastElementChild.className = 'front-face unflipped';
+          
           //I toggle the following classes to make the flip back to 
           //the normal state and set the class to include the unflip
 
@@ -145,7 +145,7 @@ for(let card of cards) {
           //before the transition happens
           firstCard.parentElement.lastElementChild.classList.toggle('hide');
           secondCard.parentElement.lastElementChild.classList.toggle('hide');
-          console.log(firstCard.parentElement)
+          
 
 
           //This then allows the front image to pop back up after the midway
@@ -154,6 +154,11 @@ for(let card of cards) {
             await new Promise(resolve => setTimeout(resolve, 300));
             firstCard.parentElement.lastElementChild.classList.toggle('hide');
             secondCard.parentElement.lastElementChild.classList.toggle('hide');
+
+            //this will then remove the flipped class
+            firstCard.parentElement.lastElementChild.className = 'front-face unflipped';
+            secondCard.parentElement.lastElementChild.className = 'front-face unflipped';
+
             firstCard = undefined;
             secondCard = undefined;
           }
