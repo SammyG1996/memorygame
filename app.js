@@ -40,6 +40,11 @@ startGame.addEventListener('click', () => {
 for(let card of cards) {
   card.addEventListener('click', (e) => {
     const cardDiv = e.target;
+
+    if (cardDiv.className !=='front-face unflipped') {
+      //do nothing
+    } else {
+
     //if there is only 1 card flipped the code will run
     if(cardDiv.className === 'front-face unflipped' && firstCard === undefined || secondCard === undefined) {
     //I added the class unflipped above and in the HTML. If it has both those classes the following code will run. 
@@ -71,6 +76,10 @@ for(let card of cards) {
       secondCard = backface;
     }
     } 
+
+    else if (cardDiv.className === 'front-face'){
+      cardDiv.className === 'front-face'
+    }
     //if 2 cards are flipped this code will prevent the card
     //flip from occouring until all cards are flipped to their 
     //original state
@@ -124,8 +133,8 @@ for(let card of cards) {
         //this will wait one sec before flipping cards
         async function delay() {
           await new Promise(resolve => setTimeout(resolve, 1000));
-          firstCard.parentElement.lastElementChild.className = 'front-face';
-          secondCard.parentElement.lastElementChild.className = 'front-face';
+          firstCard.parentElement.lastElementChild.className = 'front-face unflipped';
+          secondCard.parentElement.lastElementChild.className = 'front-face unflipped';
           //I toggle the following classes to make the flip back to 
           //the normal state and set the class to include the unflip
 
@@ -161,7 +170,9 @@ for(let card of cards) {
 
     }
 
-  })
+  }
+  
+})
 }
 
 //this allows the Restart Button to refresh the page
