@@ -41,12 +41,18 @@ for(let card of cards) {
   card.addEventListener('click', (e) => {
     const cardDiv = e.target;
     //if there is only 1 card flipped the code will run
-    if(cardDiv.className === 'front-face' && firstCard === undefined || secondCard === undefined) {
+    if(cardDiv.className === 'front-face unflipped' && firstCard === undefined || secondCard === undefined) {
+    //I added the class unflipped above and in the HTML. If it has both those classes the following code will run. 
+    //As soon as the click happens I instantly remove the flip class thereby preventing the doubleclicking of the same 
+    //card to cause it to dissapear. This would happen because the "hide" class would be applied to the card 2 times and would
+    //then cause the card to dissapear. 
+    cardDiv.className === 'front-face'
     //This waits for the card to be flipped half way to then 
     //hide the front image
     async function delay() {
       await new Promise(resolve => setTimeout(resolve, 300));
       cardDiv.classList.toggle('hide');
+      cardDiv.className === 'front-face unflipped'
     }
 
     delay()
