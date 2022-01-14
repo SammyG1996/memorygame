@@ -12,18 +12,22 @@ html, body {
 }
 
 body {
-  background: rgb(0,252,255);
+  /* background: rgb(0,252,255);
   background: linear-gradient(0deg, rgba(0,252,255,1) 30%, rgba(42,25,249,1) 100%);
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
+  background-image: url('mario_wallpaper.jpeg');
   color: blue;
   font-family: 'Press Start 2P', cursive;
 }
 
 h1 {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   position: relative;
+}
+
+h1 img {
+  width: 70vw;
 }
 
 .title {
@@ -43,17 +47,16 @@ header {
 }
 
 header section {
-  height: 60%;
+  height: 70%;
   width: 100%;
-  font-size: 1.5vw;
+  font-size: 2vw;
 }
 
 header section div {
   align-self: auto;
   width: 50%;
   height: 80%;
-  padding: 1rem;
-  background-color: rgba(245, 245, 245, 0.459);
+  padding: 1vw;
   border-radius: 10px;
   text-align: center;
   margin: auto;
@@ -66,10 +69,15 @@ header section div {
 
 }
 
+h2 {
+  background-color: rgba(245, 245, 245, 0.925);
+  border-radius: 10px;
+  padding: 1vw;
+}
 .best-score {
   width: 33%;
   height: 2rem;
-  background-color: transparent;
+  background-color: rgba(245, 245, 245, 0.925);
 }
 
 /* start game transition */
@@ -98,12 +106,7 @@ header section div {
 
 /* ----------------- */
 
-header span {
-  display: flex;
-  flex-direction: row;
-  padding: 1%;
-  font-size: 3rem;
-}
+
 
 header button {
 width: 25%;
@@ -136,7 +139,7 @@ header button:active {
   height: 7vw;
   margin-top: 1vw;
   margin-right: 1vw;
-  background-color: rgba(245, 245, 245, 0.459);
+  background-color: rgba(245, 245, 245, 0.925);
   position: absolute;
   top: 0px;
   right: 0px;
@@ -166,11 +169,12 @@ header button:active {
 
 
 #finished button {
-background-color: blueviolet;
+background-color: blue;
 height: 3vw;
 width: 10vw;
 font-size: 1vw;
 border-radius: 10px;
+border: none;
 color: whitesmoke;
 font-family: 'Press Start 2P', cursive;
 transform: scale(1);
@@ -182,6 +186,7 @@ margin-top: 1vw;
 #finished button:hover {
   transform: scale(1.1);
   transition: .1s;
+  background-color: red;
 }
 
 #finished button:active {
