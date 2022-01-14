@@ -17,10 +17,7 @@ let newImgArray = [];
 //when clicked this function will fun. It will set the flip
 //class to include the flip animation
 function flipcard(){
-  if (this.lastElementChild.className !== 'front-face unflipped') {
-  } else {
   this.className = 'memorycard flip'
-  }
 }
 
 for(let card of cards) {
@@ -46,7 +43,6 @@ for(let card of cards) {
 
     if (cardDiv.className !=='front-face unflipped') {
       //do nothing
-      //This keeps the code from running 
     } else {
 
     //if there is only 1 card flipped the code will run
@@ -81,6 +77,9 @@ for(let card of cards) {
     }
     } 
 
+    else if (cardDiv.className === 'front-face'){
+      cardDiv.className === 'front-face'
+    }
     //if 2 cards are flipped this code will prevent the card
     //flip from occouring until all cards are flipped to their 
     //original state
