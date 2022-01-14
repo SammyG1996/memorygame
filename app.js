@@ -141,13 +141,6 @@ for(let card of cards) {
           firstCard.parentElement.className = 'memorycard unflip';
           secondCard.parentElement.className = 'memorycard unflip';
 
-          //This prevents the front image from instantly popping up
-          //before the transition happens
-          firstCard.parentElement.lastElementChild.classList.toggle('hide');
-          secondCard.parentElement.lastElementChild.classList.toggle('hide');
-          
-
-
           //This then allows the front image to pop back up after the midway
           //point of the turn
           async function delay2() {
