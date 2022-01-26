@@ -4,7 +4,118 @@ font-family: 'Press Start 2P', cursive;
 font-family: 'Staatliches', cursive;
 */
 
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  body h1 img {
+    width: 90vw;
+  }
 
+  body header section {
+    height: 70%;
+    width: 100%;
+    font-size: 4vw;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+  }
+
+  body header section div {
+    width: 90%;
+    height: 50%;
+    padding: 1vw;
+  }
+  body #score {
+    width: 25vw;
+    height: 20vw;
+    font-size: 3vw;
+  }
+  
+  body header section button {
+    width: 10rem;
+    height: 3rem;
+    font-size: 3vw;
+    }
+
+    body .clickedGame {
+      animation-name: cardGameMobile;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+    }
+    
+    @keyframes cardGameMobile {
+      from {
+        position: relative;
+        bottom: -20%;
+      }
+    
+      to {
+        position: relative;
+        bottom: 70%;
+      }
+    
+    }
+
+    body #cardGameDiv {
+      height: 100vw;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-content: center;
+    }
+
+    body section .container {
+      width: 90vw;
+      height: 90vw;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 1vw;
+      row-gap: 1vw;
+      /* padding-left: 3vw; */
+    }
+
+    body .memorycard {
+      width: 20vw;
+      height: 20vw;
+      transform: scale(1);
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform .5s;
+    }
+
+    body #finished {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      bottom: 50%;
+      left: -50%;
+      width: 50vw;
+      height: 50vw;
+      font-size: 3vw;
+    }
+    
+    
+    body #finished button {
+    background-color: blue;
+    height: 10vw;
+    width: 30vw;
+    font-size: 3vw;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    position: relative;
+    left: 0vw;
+    }
+
+
+
+
+}
 
 
 html, body {
@@ -55,7 +166,7 @@ header section {
 header section div {
   align-self: auto;
   width: 50%;
-  height: 80%;
+  height: 100%;
   padding: 1vw;
   border-radius: 10px;
   text-align: center;
@@ -63,6 +174,9 @@ header section div {
   position: relative;
   bottom: 0%;
   display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
   flex-direction: column;
   font-family: 'Press Start 2P', cursive;
 
@@ -108,9 +222,9 @@ h2 {
 
 
 
-header button {
+body header button {
 width: 25%;
-height: 2rem;
+height: 4rem;
 margin: auto;
 background-color: rgba(42,25,249,1);
 border: 0px;
